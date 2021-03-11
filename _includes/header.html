@@ -1,0 +1,56 @@
+<div class="header">
+
+  <span class="logo" id="toggle_works">
+
+    {% include svg_biwo.html %}
+
+  </span>
+
+  {% include menu.html %}
+
+  <div class="profile group hide" id="profile">
+
+    <div class="image_wrap profile_photo">
+      <img src="/assets/p/profile-1920.jpg" alt="Binocle profile"/>
+    </div>
+
+    <div class="text_content">
+
+      <h1 class="work_name">Profile</h1>
+
+      {% capture prof %}{% include editables/profile.md %}{% endcapture %}
+      {{ prof | markdownify }}
+
+      <div class="contact" itemscope itemtype="http://schema.org/Organization">
+
+        <h1 class="work_name" id="contact">Contact</h1>
+
+        <p class="site_title">
+          <span itemprop="name"><strong>{{site.title}}</strong></span>
+        </p>
+
+        <p>
+          <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="streetAddress">{{site.address}}</span>
+            <span itemprop="postalCode">{{site.zip}}</span>
+            <span itemprop="addressLocality">{{site.city}}, {{site.country}}</span>
+          </span>
+        </p>
+
+        <p itemprop="telephone">
+          <a href="tel:{{site.telephone}}" title="telephone">{{site.telephone}}</a>
+        </p>
+
+        <p itemprop="email">
+          <a title="email" href="mailto:{{site.email}}">{{site.email}}</a>
+        </p>
+
+        <p>
+          <a title="Studio Binocle on Instagram" target="_blank" class="instagram" rel="noreferrer" href="https://www.instagram.com/studiobinocle/">Instagram</a>
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</div>

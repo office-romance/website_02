@@ -1,0 +1,58 @@
+<!-- Twitter Cards -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@rokmatwit">
+
+	{% if site.twitter %}
+	<meta name="twitter:creator" content="@{{ owner.twitter }}">
+	{% else %}
+	<meta name="twitter:creator" content="@rokmatwit">
+	{% endif %}
+
+	{% if page.hash == 'pictureoftheday' %}
+	<meta name="twitter:image:src" content="{{ site.url }}/assets/p/profile-640.jpg">
+	{% else %}
+	<meta name="twitter:image:src" content="{{ site.url }}/assets/p/{{ page.hash }}/{{ page.hash }}-01-640.jpg">
+	{% endif %}
+
+	{% if page.hash == 'pictureoftheday' %}
+	<meta name="twitter:title" content="{{ site.title }}">
+	{% else %}
+	<meta name="twitter:title" content="{{ site.title }} - {{ page.project | upcase }}">
+	{% endif %}
+
+	{% if page.hash == 'pictureoftheday' %}
+	<meta name="twitter:description" content="{{ site.description }}">
+	{% else %}
+	<meta name="twitter:description" content="{{ page.content | strip_html | strip_newlines | truncatewords:30 }}">
+	{% endif %}
+
+
+
+<!-- Open Graph -->
+	<meta property="og:locale" content="en_US">
+	<meta property="og:locale:alternate" content="it_IT" />
+	<meta property="og:type" content="article">
+	{% if page.hash == 'pictureoftheday' %}
+	<meta property="og:title" content="{{ site.title }} - {{ site.description }}">
+	{% else %}
+	<meta property="og:title" content="{{ site.title }} - {{ page.project | upcase }}">
+	{% endif %}
+
+	{% if page.hash == 'pictureoftheday' %}
+
+		{% comment %}
+		in home how to grab instagram img?
+		need some JS i guess!
+		{% endcomment %}
+
+	<meta property="og:image" content="{{ site.url }}/assets/p/profile-640.jpg">
+	{% else %}
+
+	<meta property="og:image" content="{{ site.url }}/assets/p/{{ page.hash }}/{{ page.hash }}-01-640.jpg">
+	{% endif %}
+
+	<meta property="og:description" content="{{ page.content|strip_html|strip_newlines|truncatewords:30 }}">
+
+	<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+
+	<meta property="og:site_name" content="{{ site.title }}">
